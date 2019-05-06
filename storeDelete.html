@@ -1,0 +1,42 @@
+{% extends "skeleton.html" %}
+{% block content %}
+
+
+<div id="dvInnerContents">
+
+
+
+    <div id="dvTitle">
+    <p>Eliminar el siguiente almacén</p>
+    </div>
+    <div id="dvBody">
+    <p>
+    <form id="frmModifyStory"
+        action="/storeDelete?store_id={{store.key.urlsafe()}}" method="post">
+        <p>
+        <b><label>Nombre</label></b><br/> <input readonly="readonly" type="text" name="stName" id="stName" size="80"
+                value="{{store.name}}"
+                style="border:none;background-color:lightgray"/>
+        <br/>
+        <b><label>Descripción</label></b> <br/><input readonly="readonly" type="text" name="stDescription" id="stDescription" size="80"
+                value="{{store.description}}"
+                style="border:none;background-color:lightgray"/>
+        <br />
+        <p>
+            <a href="/mainMenu">
+                <img width="16px" height="16px" alt="back" title="back" class="styled-button" src="/res/back.svg"/>
+            </a>
+            <input type="image"
+                   class="styled-button"
+                   title="modify" alt="modify"
+                   width="16px" height="16px" src="/res/delete.svg"/>
+
+
+        </p>
+    </form>
+    </div>
+    <div id="dvError">
+    </div>
+</div>
+
+{% endblock %}

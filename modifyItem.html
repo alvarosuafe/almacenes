@@ -1,0 +1,46 @@
+{% extends "skeleton.html" %}
+{% block content %}
+
+
+<div id="dvInnerContents">
+
+
+
+    <div id="dvTitle">
+    <p><img height="32px" width="32px" title="stories" src="/res/story.svg"/>Modifica el artículo</p>
+    </div>
+    <div id="dvBody">
+    <p>
+    <form id="frmModifyStory"
+        action="/itemModify?item_id={{item.key.urlsafe()}}" method="post">
+        <p>
+        <b><label>Nombre</label></b><br/> <input type="text" name="stName" id="stName" size="80"
+                value="{{item.name}}"
+                style="border:none;background-color:lightgray"/>
+        <br/>
+        <b><label>Cantidad</label></b> <br/><input type="number" min="1" pattern="^[0-9]+" name="stAmount" id="stAmount" size="80"
+                value="{{item.amount}}"
+                style="border:none;background-color:lightgray"/>
+        <br />
+        <p>
+            <a href="/mainMenu">
+                <img width="16px" height="16px" alt="back" title="back" class="styled-button" src="/res/back.svg"/>
+            </a>
+            <input type="image"
+                   class="styled-button"
+                   title="modify" alt="modify"
+                   width="16px" height="16px" src="/res/modify.svg"/>
+
+
+        </p>
+    </form>
+    </div>
+    <div id="dvError">
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "skeleton.html" %}
+{% block content %}
+
+<div id="dvInnerContents">
+
+    <div id="dvTitle">
+        <img height="32px" width="32px" title="chapters" src="/res/chapter.svg"/>
+        <b>Gestión de artículos del almacén <i>{{store.name}}</i></b>
+    </div>
+
+        <a href="/itemsAdd?store_id={{store.key.urlsafe()}}">
+            <img height="24px" width="24px" title="articulo nuevo"
+            class="styled-button" src="/res/add.svg"/>
+        </a>
+
+
+  <div >
+	  {% for item in items %}
+	  <div class="dvEntry"><p>
+		  <a href="/itemModify?item_id={{item.key.urlsafe()}}">
+			  <img width="16px" height="16px" title="modificar"
+				   class="styled-button" src="/res/modify.svg"/>
+		  </a>
+		  <a href="/itemDelete?item_id={{item.key.urlsafe()}}">
+			  <img width="16px" height="16px" title="eliminar"
+				   class="styled-button" src="/res/delete.svg"/>
+		  </a>
+
+  <b>Artículo: {{item.name}}</b>, Cantidad: {{item.amount}}
+
+
+            </p>
+			</div>
+        {% else %}
+	  <p align="center">Aún no hay artículos</p>
+        {% endfor %}
+    </div>
+</div>
+    <footer>
+  <p>        <a href="/mainMenu">
+            <img height="24px" width="24px" title="back"
+            class="styled-button" src="/res/back.svg"/>
+        </a></p>
+
+</footer>
+</div>
+
+
+{% endblock %}

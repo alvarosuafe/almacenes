@@ -1,0 +1,27 @@
+{% extends "skeleton.html" %}
+{% block content %}
+
+
+<div class="container">
+  <form id="contact" action="/itemsAdd" method="post">
+    <h3>Crea un nuevo artículo para el almacén  <i>"{{store.name}}"</i> </h3>
+    <fieldset>
+      <input placeholder="Nombre del artículo" id="stName" name="stName" type="text" tabindex="1" required autofocus>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Cantidad" id="stAmount" name="stAmount" type="number" min="1" pattern="^[0-9]+" tabindex="2" required>
+    </fieldset>
+    <fieldset>
+    <input type="hidden" id="id_store" name="id_store" value="{{store.key.urlsafe()}}">
+       </fieldset>
+    <fieldset>
+
+        <a href="/storeAdd">
+      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Crear</button>
+        </a>
+    </fieldset>
+  </form>
+</div>
+
+
+{% endblock %}
